@@ -4,11 +4,11 @@ import { factory } from "../libs";
 const handlers = factory.createHandlers(async (c) => {
 	const id = c.req.param("id");
 
-	if (!id) return c.status(400);
+	if (!id) return c.text("Bad Request", 400);
 
 	// await saveVideoToYouTubePlaylist(id, c.env.YOUTUBE_PLAYLIST_ID, "");
 
-	return c.status(200);
+	return c.text("OK");
 });
 
 export const saveVideo = handlers[0];

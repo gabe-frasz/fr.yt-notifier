@@ -6,7 +6,7 @@ const handlers = factory.createHandlers(async (c) => {
 
 	const videoInfo = extractInfoFromXML(text);
 
-	if (!videoInfo || (await isDamnShort(videoInfo.id))) return c.status(200);
+	if (!videoInfo || (await isDamnShort(videoInfo.id))) return c.text("OK");
 
 	const kv = new TypedKV(c.env.KV);
 
@@ -21,7 +21,7 @@ const handlers = factory.createHandlers(async (c) => {
     await kv.createChannel(channel.id, channel);
 	}
 
-	if (channel.lastVideoId === videoInfo.id) return c.status(200);
+	if (channel.lastVideoId === videoInfo.id) return c.text("OK");
 
 	await kv.updateChannelLastVideoId(channel.id, videoInfo.id);
 
@@ -40,7 +40,7 @@ const handlers = factory.createHandlers(async (c) => {
 		ntfyTopic: c.env.NTFY_TOPIC,
 	});
 
-	return c.status(200);
+	return c.text("OK");
 });
 
 export const handleNotification = handlers[0];
