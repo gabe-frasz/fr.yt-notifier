@@ -1,0 +1,18 @@
+{
+	"name": "yt-notifier",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "wrangler dev --env-file .env.dev",
+		"start": "wrangler dev --env-file .env.prod",
+		"deploy": "wrangler deploy",
+		"typegen": "wrangler types"
+	},
+	"devDependencies": {
+		"typescript": "^5.5.2",
+		"wrangler": "^4.56.0"
+	},
+	"dependencies": {
+		"hono": "^4.11.1"
+	}
+}
