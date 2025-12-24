@@ -1,17 +1,20 @@
-export function extractInfoFromXML(xml: string) {
-	const id = xml.match(/<yt:videoId>(.*?)<\/yt:videoId>/)?.[1];
-	const title = xml.match(/<title>(.*?)<\/title>/)?.[1];
-	const link = xml.match(/<link rel="alternate" href="(.*?)"/)?.[1];
-	const author = xml.match(/<name>(.*?)<\/name>/)?.[1];
-	const channelId = xml.match(/<yt:channelId>(.*?)<\/yt:channelId>/)?.[1];
+const regexes = {
+  videoId: /<yt:videoId>(.*?)<\/yt:videoId>/,
+  title: /<title>(.*?)<\/title>/g,
+  link: /<link rel="alternate" href="(.*?)"/,
+  author: /<name>(.*?)<\/name>/,
+  channelId: /<yt:channelId>(.*?)<\/yt:channelId>/,
+};
 
+export function extractInfoFromXML(xml: string) {
+	const id = xml.match(regexes.videoId)?.[1];
   if (!id) return null;
 
 	return {
 		id,
-		title: title ?? "New Video",
-		link: link ?? "Unknown",
-		author: author ?? "Unknown",
-		channelId: channelId ?? "Unknown",
+		title: Array.from(xml.matchAll(regexes.title))[1][1] ?? "New video",
+		link: xml.match(regexes.link)?.[1] ?? "Unknown",
+		author: xml.match(regexes.author)?.[1] ?? "Unknown",
+		channelId: xml.match(regexes.channelId)?.[1] ?? "Unknown",
 	};
 }
