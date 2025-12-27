@@ -8,7 +8,7 @@ export async function websubSubscribe(env: Env, channelId: string) {
 			"Content-Type": "application/x-www-form-urlencoded",
 		},
 		body: new URLSearchParams({
-			"hub.callback": `${env.API_HOST}/notifications/`,
+			"hub.callback": `${env.API_HOST}/notifications`,
 			"hub.topic": YOUTUBE_XML_BASE_URL + channelId,
 			"hub.mode": "subscribe",
 			// "hub.verify_token": "verify-token",
