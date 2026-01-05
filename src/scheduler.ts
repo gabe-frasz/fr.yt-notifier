@@ -1,8 +1,8 @@
 import type { Env } from "./env";
-import { websubResubscribeToAll } from "./schedules";
+import { fetchLatestVideosFromRSS } from "./schedules";
 
 const cronsMap: Record<string, (env: Env) => Promise<any>> = {
-	"0 3 * * 2,6": websubResubscribeToAll,
+	"*/30 * * * *": fetchLatestVideosFromRSS,
 };
 
 export async function scheduler(

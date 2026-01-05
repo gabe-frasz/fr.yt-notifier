@@ -1,1 +1,1 @@
-export * from "./websub-resubscribe";
+export * from "./fetch-latest-videos-from-rss";
