@@ -6,11 +6,10 @@ A simple notification service for YouTube channels WITH NO SHORTS via ntfy.sh
 
 - [X] Use KV to store subscriptions
 - [X] Save last video ID in KV for each channel to avoid duplicates
-- [X] Add cron job to resub
+- [X] ~~Add cron job to resub~~ (not needed anymore)
 - [X] Add frontend to manage subscriptions
 	- [X] HTMX + Tailwind (CDN)
-    - [ ] Protect with JWT
-- [ ] Implement GitHub OAuth
+    - [X] Protect with JWT
+- [X] Implement GitHub OAuth
 - [X] Add mobile action to save video
     - [ ] Get Google/Youtube tokens
-- [ ] Subscribe with secret and validate every feed notification
