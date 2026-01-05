@@ -1,6 +1,6 @@
 import type { Env } from "../env";
 import { TypedKV } from "../libs";
-import { fetchLatestVideoFromChannel, sendMobileAlert } from "../utils";
+import { fetchLatestVideoFromChannel, isDamnShort, sendMobileAlert } from "../utils";
 
 export async function fetchLatestVideosFromRSS(env: Env) {
 	const kv = new TypedKV(env.KV);
@@ -19,6 +19,9 @@ export async function fetchLatestVideosFromRSS(env: Env) {
 		if (!channel || video.id === channel.lastVideoId) continue;
 
 		await kv.updateChannelLastVideoId(video.channelId, video.id);
+
+    if (await isDamnShort(video.id)) continue;
+
 		await sendMobileAlert({
 			video: {
 				id: video.id,
