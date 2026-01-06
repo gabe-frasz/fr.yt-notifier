@@ -9,7 +9,7 @@
 	},
 	"triggers": {
 		"crons": [
-      "*/30 * * * *"
+			"*/30 * * * *"
 		]
 	},
 	"kv_namespaces": [
@@ -17,5 +17,10 @@
 			"binding": "KV",
 			"id": "cc71833866ed4db8973a1216f8e87e29"
 		}
-	]
+	],
+	"vars": {
+		"ALLOWED_USERNAME": "gabe-frasz",
+		"API_HOST": "https://yt-notifier.gabrielvitor-frasao.workers.dev",
+		"GITHUB_REDIRECT_URI": "https://yt-notifier.gabrielvitor-frasao.workers.dev/auth/login/oauth/github/callback"
+	}
 }
