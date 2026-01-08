@@ -9,7 +9,7 @@
 	},
 	"triggers": {
 		"crons": [
-			"*/30 * * * *"
+			"*/20 * * * *"
 		]
 	},
 	"kv_namespaces": [

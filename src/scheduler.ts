@@ -2,7 +2,7 @@ import type { Env } from "./env";
 import { fetchLatestVideosFromRSS } from "./schedules";
 
 const cronsMap: Record<string, (env: Env) => Promise<any>> = {
-	"*/30 * * * *": fetchLatestVideosFromRSS,
+	"*/20 * * * *": fetchLatestVideosFromRSS,
 };
 
 export async function scheduler(
