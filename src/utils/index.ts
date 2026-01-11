@@ -1,4 +1,4 @@
-export * from "./youtube";
+export * from "./is-damn-short";
 export * from "./extract-info-from-xml";
 export * from "./send-mobile-alert";
 export * from "./fetch-latest-video-from-channel";

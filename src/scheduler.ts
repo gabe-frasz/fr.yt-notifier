@@ -1,8 +1,9 @@
 import type { Env } from "./env";
-import { fetchLatestVideosFromRSS } from "./schedules";
+import { fetchLatestVideosFromRSS, syncChannels } from "./schedules";
 
 const cronsMap: Record<string, (env: Env) => Promise<any>> = {
 	"*/20 * * * *": fetchLatestVideosFromRSS,
+  "0 0 * * *": syncChannels,
 };
 
 export async function scheduler(
